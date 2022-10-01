@@ -23,7 +23,7 @@ See the documentation for your webserver (if using Apache httpd, Nginx or simila
 
 However if your site is hosted on a static webserver such as Cloudflare, simply add a file called \_headers to your project directory.
 
-The syntax for the headers document is
+The syntax for this \_headers document is
 
      [url]
        [name]: [value]
