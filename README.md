@@ -30,12 +30,12 @@ You can read more about the _headers file on the Cloudflare documentation.
 
 ### What do they do?
 
-Referrer-Policy: same-origin
-- Control what information is passed along when a visitor clicks on links in your site. The value same-origin means that, if a visitor to your webpage clicks a link that goes offsite, no information is passed along.
-X-Content-Type-Options: nosniff
-- Don’t allow the browser to guess what type of content you are linking, requires you properly label the content type, e.g. type="text/css" in any links
-X-Frame-Options: DENY
-- prevents your site from being embedded on other websites (misappropriated)
+    Referrer-Policy: same-origin
+    - Control what information is passed along when a visitor clicks on links in your site. The value same-origin means that, if a visitor to your webpage clicks a link that goes offsite, no information is passed along.
+    X-Content-Type-Options: nosniff
+    - Don’t allow the browser to guess what type of content you are linking, requires you properly label the content type, e.g. type="text/css" in any links
+    X-Frame-Options: DENY
+    - prevents your site from being embedded on other websites (misappropriated)
 
 ## Content security policy
 
@@ -63,7 +63,7 @@ Content-Security-Policy:
     - similar to the 'X-Frame-Options: DENY' from before, since it prevents your site from being embedded elsewhere.
 
 If you want to include JavaScript (or other content), especially content loaded from a different domain, modifying your CSP will require a bit more work.
-To see more details on creating a content security policy, see the MDN page.
+To see more details on creating a content security policy, see the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP#writing_a_policy">MDN page</a>.
 
 
 ## HSTS Preload
@@ -72,9 +72,9 @@ Essentially, HSTS (HTTP Strict Transport Security) provides a list of sites that
 This list is used by your browser to guarantee to prevent connecting to a site on the list without using HTTPS.
 If you are committed to using HTTPS, you can register your site for HSTS Preload at the URL https://hstspreload.org.
 
+Make sure you also add a Strict-Transport-Security header as follows:
 
-Make sure you also add the Strict-Transport-Security header as follows:
-  Strict-Transport-Security: max-age=31536000; preload; includeSubDomains
+    Strict-Transport-Security: max-age=31536000; preload; includeSubDomains
 
 
 ## Complete _headers file example for Cloudflare
