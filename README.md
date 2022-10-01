@@ -14,15 +14,15 @@ However if your site is hosted on a static webserver such as Cloudflare, simply 
 
 The syntax for the headers document is
 
-  [url]
-    [name]: [value]
+     [url]
+       [name]: [value]
  
 ### For example
  
-   /*
-    Referrer-Policy: same-origin
-    X-Content-Type-Options: nosniff
-    X-Frame-Options: DENY
+     /*
+       Referrer-Policy: same-origin
+       X-Content-Type-Options: nosniff
+       X-Frame-Options: DENY
   
 This adds the three headers to any HTTP request sent to a URL matching the /* pattern - that is, every URL on your site!
 You can read more about the _headers file on the Cloudflare documentation.
@@ -45,22 +45,22 @@ For this site, all content is served from the same domain (self), the only non-H
 
 Content-Security-Policy:
 
-  default-src 'none'; img-src 'self'; style-src 'self'; upgrade-insecure-requests; form-action 'none'; base-uri 'none'; frame-ancestors 'none'
+     default-src 'none'; img-src 'self'; style-src 'self'; upgrade-insecure-requests; form-action 'none'; base-uri 'none'; frame-ancestors 'none'
 
 ### Here is an explanation of the various components.
 
-default-src 'none';
-- by default, we are serving no content other than HTML.
-img-src 'self'; style-src 'self';
-- include CSS and images, but only from the same domain.
-upgrade-insecure-requests;
-- redirect http:// to https://
-form-action 'none';
-- do not send HTTP forms anywhere
-base-uri: none;
-the document base URL is just /
-frame-ancestors 'none';
-- similar to the 'X-Frame-Options: DENY' from before, since it prevents your site from being embedded elsewhere.
+    default-src 'none';
+    - by default, we are serving no content other than HTML.
+    img-src 'self'; style-src 'self';
+    - include CSS and images, but only from the same domain.
+    upgrade-insecure-requests;
+    - redirect http:// to https://
+    form-action 'none';
+    - do not send HTTP forms anywhere
+    base-uri: none;
+    the document base URL is just /
+    frame-ancestors 'none';
+    - similar to the 'X-Frame-Options: DENY' from before, since it prevents your site from being embedded elsewhere.
 
 If you want to include JavaScript (or other content), especially content loaded from a different domain, modifying your CSP will require a bit more work.
 To see more details on creating a content security policy, see the MDN page.
@@ -77,19 +77,15 @@ Make sure you also add the Strict-Transport-Security header as follows:
   Strict-Transport-Security: max-age=31536000; preload; includeSubDomains
 
 
-
-
-
-
 ## Complete _headers file example for Cloudflare
 
 Here is a _headers file, which implements all of the recommendations above.
 
-  /*
-    Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self'; upgrade-insecure-requests; form-action 'none'; base-uri 'none'; frame-ancestors 'none'
-    Referrer-Policy: same-origin
-    Strict-Transport-Security: max-age=31536000; preload; includeSubDomains
-    X-Content-Type-Options: nosniff
-    X-Frame-Options: DENY
+     /*
+        Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self'; upgrade-insecure-requests; form-action 'none'; base-uri 'none'; frame-ancestors 'none'
+        Referrer-Policy: same-origin
+        Strict-Transport-Security: max-age=31536000; preload; includeSubDomains
+        X-Content-Type-Options: nosniff
+        X-Frame-Options: DENY
 
 To verify that headers are loaded properly on your site. The <a href="https://observatory.mozilla.org/analyze/cobalt.pages.dev">Mozilla observatory page</a> is a nice resource
