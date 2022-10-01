@@ -3,8 +3,21 @@
 This is a template repo that can be cloned to start a basic website.
 There are also some tips on making your site more secure.
 
+And its all free! :D
+
+### GitHub Pages approach
+
+If you clone it to github (as a public repo) and name your repository in the format <username>.github.io it will automatically create a github pages site for you! For example see <a href="https://kevinpgrant.github.io/">https://kevinpgrant.github.io/</a>
+
+### Cloudflare Pages approach
+
+If you prefer to keep your source code repo private (maybe you use some tooling to compile the site from the /src folder into the /dist folder and only want to publish content from /dist) - you can use <a href=https://dash.cloudflare.com/">Cloudflare Pages</a>, and point it at your private github/gitlab repo
+     
+n.b. Configuring a normal webserver such as Apache or Nginx to serve your website is beyond the scope of this document, sorry! there are plenty of instructions how to do this on the web though :)
+
 
 ## Basic security headers
+     
 HTTP headers are used to to pass additional information with the body of the HTTP request.
 You can use HTTP headers to make guarantees about the content being server, 
 to prevent your site from being misused, or the content from being hijacked.
