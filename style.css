@@ -1,0 +1,116 @@
+/* 
+ * This centres the text body,
+ * prevents it from being too wide on large screens,
+ * ensures there is a bit of a space on the boundary when the screen is small
+ * and finally sets a new font (rather than the usual default Times New Roman). 
+ * The min-width: 0 is useful to prevent large elements from (accidentally) making
+ * the page very wide on screens narrower than 700 pixels.
+ */
+body {
+  margin: 0 auto;
+  max-width: 700px;
+  min-width: 0;
+  padding: 0 10px 25px;
+  font-family: "Helvetica", "Arial", sans-serif;
+  # background-color: #c0ffee;
+}
+
+/* adjust the spacing so that the text is laid out a bit */
+h2 {
+  margin-top: 1em;
+  padding-top: 1em;
+}
+nav a {
+  margin-left: 20px;
+}
+
+/* colour of the text */
+body {
+  color: #444;
+}
+h1, h2, strong {
+  color: #222;
+}
+
+/* touch up the font sizes */
+header {
+  margin: 0px;
+  font-size: 23px;
+}
+article {
+  font-size: 16px;
+}
+nav {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+h1 {
+  font-size: 26px;
+}
+h2 {
+  font-size: 23px;
+}
+
+/* styling the links */
+a {
+  color: #ffa64d;
+}
+
+
+body {
+  display: grid; /* specifying a grid layout for its children. */
+  row-gap: 5px; /* some space between the rows */
+  grid-template-columns: auto auto; /* two columns, and determine their widths automatically */
+  grid-template-rows: 60px auto; /* two rows, first contains header and nav, height 60 pixels, second automatic size based on content */
+  grid-template-areas:
+    "header nav"
+    "ct ct"
+    /*
+     * this bit assigsn names to the areas.
+     * We have header in the top left, nav in the top right,
+     * and ct everywhere else (spanning both columns).
+     * Note that the names can be whatever you would like
+     * (there is no special meaning assigned to using header and nav).
+     */
+}
+
+header {
+  grid-area: header;
+  justify-self: left;
+  align-self: end; /* within the grid row, be placed as late as possible (bottom) */
+}
+nav {
+  grid-area: nav;
+  justify-self: right;
+  align-self: end;
+}
+nav a {
+  text-align: right;
+}
+article {
+  grid-area: ct;
+  border-top: 2px solid gray; /* add a border above the <article> element */
+}
+
+/* when the screen is narrower than 430px eg on a phone ... */
+@media screen and (max-width: 430px) {
+  body {
+    grid-template-columns: auto;
+    /* ... set the first row to be at least 40 pixels tall, and so on ... */
+    grid-template-rows: minmax(40px, auto) minmax(30px, auto) auto auto; 
+    /* ... place the header on top of the navigation bar by changing the grid layout in the body ... */
+    grid-template-areas:
+    "header"
+    "nav"
+    "ct"
+  }
+  header, nav {
+    /* ... centre the header and navigation bar ... */
+    text-align: center;
+    justify-self: center;
+  }
+  nav a {
+    /* ... and remove the asymmetric styling on the navigation links */
+    margin: 0 10px;
+  }
+}
