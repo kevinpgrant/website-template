@@ -7,7 +7,7 @@ And its all free! :D
 
 ### GitHub Pages approach
 
-If you clone it to github (as a public repo) and name your repository in the format <username>.github.io it will automatically create a github pages site for you! For example see <a href="https://kevinpgrant.github.io/">https://kevinpgrant.github.io/</a>
+If you clone it to github (as a public repo) and name your repository in the format {username}.github.io it will automatically create a github pages site for you! For example see <a href="https://kevinpgrant.github.io/">https://kevinpgrant.github.io/</a>
 
 ### Cloudflare Pages approach
 
