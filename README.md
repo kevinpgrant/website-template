@@ -11,8 +11,8 @@ If you clone it to github (as a public repo) and name your repository in the for
 
 ### Cloudflare Pages approach
 
-If you prefer to keep your source code repo private (maybe you use some tooling to compile the site from the /src folder into the /dist folder and only want to publish content from /dist) - you can use <a href="https://dash.cloudflare.com/">Cloudflare Pages</a>, and point it at your private github/gitlab repo
-     
+If you prefer to keep your source code repo private (maybe you use some tooling to compile the site from the /src folder into the /dist folder and only want to publish content from /dist) - you can use <a href="https://dash.cloudflare.com/">Cloudflare Pages</a>, and point it at your private github/gitlab repo. You can then give it a project name and it will create a domain link for you such as <a href="https://cobalt.pages.dev/">cobalt.pages.dev</a>
+
 n.b. Configuring a normal webserver such as Apache or Nginx to serve your website is beyond the scope of this document, sorry! there are plenty of instructions how to do this on the web though :)
 
 
