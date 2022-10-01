@@ -44,9 +44,13 @@ You can read more about the _headers file on the Cloudflare documentation.
 ### What do they do?
 
     Referrer-Policy: same-origin
-    - Control what information is passed along when a visitor clicks on links in your site. The value same-origin means that, if a visitor to your webpage clicks a link that goes offsite, no information is passed along.
+    - Control what information is passed along when a visitor clicks on links in your site. 
+      The value same-origin means that, if a visitor to your webpage clicks a link that goes offsite, no information is passed along.
+      
     X-Content-Type-Options: nosniff
-    - Don’t allow the browser to guess what type of content you are linking, requires you properly label the content type, e.g. type="text/css" in any links
+    - Don’t allow the browser to guess what type of content you are linking,
+      requires you properly label the content type, e.g. type="text/css" in any links
+      
     X-Frame-Options: DENY
     - prevents your site from being embedded on other websites (misappropriated)
 
@@ -64,14 +68,19 @@ Content-Security-Policy:
 
     default-src 'none';
     - by default, we are serving no content other than HTML.
+    
     img-src 'self'; style-src 'self';
     - include CSS and images, but only from the same domain.
+    
     upgrade-insecure-requests;
     - redirect http:// to https://
+    
     form-action 'none';
     - do not send HTTP forms anywhere
+    
     base-uri: none;
     the document base URL is just /
+    
     frame-ancestors 'none';
     - similar to the 'X-Frame-Options: DENY' from before, since it prevents your site from being embedded elsewhere.
 
