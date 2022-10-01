@@ -1,9 +1,8 @@
 # website-template
 
-This is a template repo that can be cloned to start a basic website.
-There are also some tips on making your site more secure.
+This is a template repo that can be cloned to start a basic website. There are also some tips on making your site more secure.
 
-And its all free! :D
+And the best part is - it's all free! :D
 
 ### GitHub Pages approach
 
@@ -18,12 +17,11 @@ n.b. Configuring a normal webserver such as Apache or Nginx to serve your websit
 
 ## Basic security headers
      
-HTTP headers are used to to pass additional information with the body of the HTTP request.
-You can use HTTP headers to make guarantees about the content being server, 
-to prevent your site from being misused, or the content from being hijacked.
+HTTP headers are used to to pass additional 'meta' information with the body of the HTTP request. You can use these HTTP headers to make guarantees about the content being served, to prevent your site from being misused, or the content from being hijacked.
 
 See the documentation for your webserver (if using Apache httpd, Nginx or similar) on how to manage headers.
-However if your site is hosted on a static webserver such as Cloudflare, simply add a file called _headers to your project directory.
+
+However if your site is hosted on a static webserver such as Cloudflare, simply add a file called \_headers to your project directory.
 
 The syntax for the headers document is
 
@@ -38,7 +36,7 @@ The syntax for the headers document is
        X-Frame-Options: DENY
   
 This adds the three headers to any HTTP request sent to a URL matching the /* pattern - that is, every URL on your site!
-You can read more about the _headers file on the Cloudflare documentation.
+You can read more about the \_headers file on the Cloudflare documentation.
 
 
 ### What do they do?
@@ -99,9 +97,9 @@ Make sure you also add a Strict-Transport-Security header as follows:
     Strict-Transport-Security: max-age=31536000; preload; includeSubDomains
 
 
-## Complete _headers file example for Cloudflare
+## Complete \_headers file example for Cloudflare
 
-Here is a _headers file, which implements all of the recommendations above.
+Here is a \_headers file, which implements all of the recommendations above.
 
      /*
         Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self'; upgrade-insecure-requests; form-action 'none'; base-uri 'none'; frame-ancestors 'none'
